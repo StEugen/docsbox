@@ -1,7 +1,0 @@
-sudo: required
-language: python
-services:
-  - docker
-
-script:
-  - docker-compose run web nosetests
