@@ -32,6 +32,10 @@ PRESENTATION_EXPORT_FORMATS = ["pdf", "html"]
 PDF_EXPORT_FORMATS = ["html"]
 
 SUPPORTED_MIMETYPES = {
+    # Microsoft Word 2003
+    "application/msword": {
+        "formats": DOCUMENT_EXPORT_FORMATS,
+    },
     
     "application/vnd.openxmlformats-officedocument.wordprocessingml.document": {
         "formats": DOCUMENT_EXPORT_FORMATS,

@@ -48,7 +48,7 @@ class DocumentCreateView(Resource):
                 , tmp_file.name)
 
                 magic = Magic()
-                mimetype = magic.from_file(tmp_file.name)
+                mimetype = magic.from_file(tmp_file.name, mime=True)
 
                 if mimetype not in app.config["SUPPORTED_MIMETYPES"]:
                     return abort(400, message="Not supported mimetype: '{0}'".format(mimetype))
