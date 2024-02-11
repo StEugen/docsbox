@@ -22,7 +22,7 @@ class DocumentView(Resource):
         if task:
             return {
                 "id": task.id,
-                "status": task.status,
+                #"status": task.status,
                 "result_url": task.result
             }
         else:
