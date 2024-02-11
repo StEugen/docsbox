@@ -1,7 +1,7 @@
 import ujson
 import datetime
+import magic
 
-from magic import Magic
 from tempfile import NamedTemporaryFile
 
 from flask import request
@@ -47,7 +47,7 @@ class DocumentCreateView(Resource):
                     datetime.timedelta(seconds=app.config["ORIGINAL_FILE_TTL"])
                 , tmp_file.name)
 
-                magic = Magic()
+                #magic = Magic()
                 mimetype = magic.from_file(tmp_file.name, mime=True)
 
                 if mimetype not in app.config["SUPPORTED_MIMETYPES"]:
