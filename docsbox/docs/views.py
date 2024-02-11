@@ -89,8 +89,5 @@ class DocumentCreateView(Resource):
                 task = process_document.queue(tmp_file.name, options, {
                     "mimetype": mimetype,
                 })
-                print(task)
-        return {
-            "id": task.id,
-            "status": task.status,
-        }
+                ##print(task)
+        return task
