@@ -90,4 +90,6 @@ class DocumentCreateView(Resource):
                     "mimetype": mimetype,
                 })
                 ##print(task)
-        return task
+        return {
+            "task": task
+        }
