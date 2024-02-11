@@ -11,6 +11,7 @@ RUN apt-get update && apt-get upgrade -y
 RUN apt-get install -y libffi-dev libmagic-dev libmagickwand-dev
 RUN apt-get install -y libreoffice libreofficekit-dev
 RUN apt-get install -y python3-dev python3-pip git
+RUN ap-get install -y python3-magic
 RUN apt-get clean
 RUN apt-get install -y locales
 RUN locale-gen en_US.UTF-8
