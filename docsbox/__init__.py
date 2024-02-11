@@ -1,5 +1,5 @@
 from flask import Flask
-from flask.ext.rq2 import RQ
+from flask_rq2 import RQ
 from flask_restful import Api
 from flask_env_settings import Settings
 
