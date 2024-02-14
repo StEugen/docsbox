@@ -88,5 +88,5 @@ SUPPORTED_MIMETYPES = {
 }
 
 DEFAULT_OPTIONS = {
-    "formats": ["pdf"]
+    "formats": ["html"]
 }
