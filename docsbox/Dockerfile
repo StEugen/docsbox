@@ -1,13 +1,13 @@
 FROM ubuntu:20.04
 
 ENV DEBIAN_FRONTEND=noninteractive
-RUN apt-get update && apt-get upgrade -y
+RUN apt-get update 
 RUN apt-get install -y tzdata && \
     ln -fs /usr/share/zoneinfo/Europe/Samara /etc/localtime && \
     dpkg-reconfigure --frontend noninteractive tzdata && \
     apt-get clean
 
-RUN apt-get update && apt-get upgrade -y
+RUN apt-get update
 RUN apt-get install -y libffi-dev libmagic-dev libmagickwand-dev
 RUN apt-get install -y libreoffice libreofficekit-dev
 RUN apt-get install -y python3-dev python3-pip git
