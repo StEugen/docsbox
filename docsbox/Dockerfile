@@ -1,7 +1,7 @@
 FROM ubuntu:20.04
 
 ENV DEBIAN_FRONTEND=noninteractive
-RUN apt-get update && apt-get upgrade
+RUN apt-get update && apt-get upgrade -y
 RUN apt-get install -y tzdata && \
     ln -fs /usr/share/zoneinfo/Europe/Samara /etc/localtime && \
     dpkg-reconfigure --frontend noninteractive tzdata && \
