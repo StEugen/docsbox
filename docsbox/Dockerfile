@@ -27,3 +27,4 @@ WORKDIR /home/
 RUN pip3 install --upgrade pip
 RUN pip3 install -r docsbox/requirements.txt
 
+ENTRYPOINT ["gunicorn", "-b", ":8000", "docsbox:app"]
