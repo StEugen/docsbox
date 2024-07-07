@@ -28,4 +28,4 @@ RUN mkdir -p /home/docsbox/media
 RUN pip3 install --upgrade pip
 RUN pip3 install -r docsbox/requirements.txt
 
-ENTRYPOINT ["gunicorn", "-b", ":8001", "docsbox:app"]
+ENTRYPOINT ["gunicorn", "-b", ":8001", "docsbox:app", "--workers=3", "--threads=3", "--worker-connections=1000"]
