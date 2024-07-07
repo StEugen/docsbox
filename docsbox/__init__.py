@@ -23,10 +23,11 @@ Settings(app, rules={
 api = Api(app)
 rq = RQ(app)
 
-from docsbox.docs.views import DocumentView, DocumentCreateView
+from docsbox.docs.views import DocumentView, DocumentCreateView, MediaView
     
 api.add_resource(DocumentView, "/api/v1/<task_id>")
 api.add_resource(DocumentCreateView, "/api/v1/")
+api.add_resource(MediaView, "/media/<string:filename>")
 
 if __name__ == "__main__":
     app.run()
