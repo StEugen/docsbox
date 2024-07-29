@@ -1,0 +1,54 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: 
+  name: db-redis
+  namespace: 
+spec:
+  ports:
+  - port: 6379
+    protocol: TCP
+    targetPort: 6379
+  selector:
+    app: 
+    tier: cache
+---
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: db-redis
+  namespace: 
+spec:
+  replicas: 1
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      app: 
+      tier: cache
+  serviceName: db-redis
+  template:
+    metadata:
+      labels:
+        app: 
+        tier: cache
+    spec:
+      containers:
+      - image: redis:3.2-alpine
+        imagePullPolicy: IfNotPresent
+        name: db-redis
+        ports:
+        - containerPort: 6379
+          protocol: TCP
+        volumeMounts:
+        - name: pvc-redis 
+          mountPath: /data/docsbox 
+      restartPolicy: Always
+      volumes:
+      - name: pvc-redis
+        persistentVolumeClaim:
+          claimName: pvc-redis
+  updateStrategy:
+    rollingUpdate:
+      partition: 0
+    type: RollingUpdate
