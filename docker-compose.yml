@@ -5,13 +5,13 @@ services:
     restart: always
     build: ./docsbox
     expose:
-      - "8000"
+      - "8001"
     links:
       - redis:redis
     volumes:
       - ./docsbox:/home/docsbox
       - /tmp/media:/home/docsbox/media
-    command: gunicorn -b :8000 docsbox:app
+    command: gunicorn -b :8001 docsbox:app
 
   rqworker:
     restart: always
