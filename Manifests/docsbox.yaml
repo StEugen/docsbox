@@ -18,7 +18,7 @@ kind: Deployment
 metadata:
   labels:
     type: docsbox-service
-    version: "0.8.1"
+    version: "1.0"
   name: docsbox
   namespace: 
 spec:
@@ -36,7 +36,7 @@ spec:
       hostNetwork: true
       containers:
         - name: docsbox
-          image: pgnomme/docsbox:v0.8.1
+          image: pgnomme/docsbox:v1.0
           ports:
             - containerPort: 8001
               protocol: TCP
@@ -50,7 +50,7 @@ spec:
             - name: pvc-redis
               mountPath: /home/docsbox/media
         - name: rqworker
-          image: pgnomme/docsbox:v0.8.1
+          image: pgnomme/docsbox:v1.0
           command: ["rq", "worker", "-c", "docsbox.settings"]
           env:
             - name: REDIS_URL
@@ -61,7 +61,7 @@ spec:
             - name: pvc-redis
               mountPath: /home/docsbox/media
         - name: rqscheduler
-          image: pgnomme/docsbox:v0.8.1
+          image: pgnomme/docsbox:v1.0
           command: ["rqscheduler", "-H", db-redis, "-p", "6379", "-d", "0"]
           env:
             - name: REDIS_URL
